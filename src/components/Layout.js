@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import HeaderLoggedIn from "./HeaderLoggedIn";
 import HeaderNotLoggedIn from "./HeaderNotLoggedIn";
 
@@ -7,6 +8,7 @@ function Layout({ children }) {
       <HeaderLoggedIn />
       <HeaderNotLoggedIn />
       {children}
+      <Footer />
     </>
   );
 }
