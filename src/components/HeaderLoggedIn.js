@@ -18,7 +18,7 @@ function Header() {
                 About
               </Link>
             </Nav>
-            <Nav className="navbar-nav ml-auto">
+            <Nav className="navbar-nav ms-auto">
               <Dropdown className="header-img-icon">
                 <Dropdown.Toggle variant="default">
                   <img src={user} alt="avatar" />
@@ -26,13 +26,10 @@ function Header() {
                 <Dropdown.Menu>
                   <div className="dropdown-header d-flex flex-column align-items-center">
                     <div className="figure mb-3">
-                      <img src={user} alt="" />
+                      <img src={user} alt="avatar" />
                     </div>
                     <div className="info text-center">
-                      <p className="name font-weight-bold mb-0">
-                        {/* {auth.user.firstName} {auth.user.lastName} */}
-                        prova prova
-                      </p>
+                      <p className="name font-weight-bold mb-0">prova prova</p>
                       <p className="email text-muted mb-3">@prova</p>
                     </div>
                   </div>

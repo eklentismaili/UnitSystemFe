@@ -14,7 +14,7 @@ function HeaderNotLoggedIn() {
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="navbar-nav ml-auto">
+          <Nav className="navbar-nav ms-auto">
             {pathname !== "/login" ? (
               <li className="nav-item">
                 <Link to="/login" className="nav-link">
