@@ -34,7 +34,7 @@ function Login() {
           };
 
           localStorage.setItem("user", `${JSON.stringify(userData)}`);
-          window.location.replace("http://localhost:3000/about");
+          window.location.replace("http://localhost:3000/users");
         });
       })
       .catch((err) => {

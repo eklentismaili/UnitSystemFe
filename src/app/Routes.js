@@ -1,28 +1,48 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Route, Routes as ReactRoutes, Navigate } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
-import About from "../pages/About";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
+import Orders from "../pages/Orders";
+import Users from "../pages/Users";
+import { AuthContext } from "../providers/AuthContext";
+import NotFound from "../pages/NotFound";
 
 const Routes = () => {
+  const { token } = useContext(AuthContext);
+
   return (
     <>
       <Layout>
         <ReactRoutes>
           <Route
-            path="/about"
+            path="/users"
             element={
               <ProtectedRoute>
-                <About />
+                <Users />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <ProtectedRoute>
+                <Orders />
               </ProtectedRoute>
             }
           />
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/login"
+            element={token ? <Navigate to="/" /> : <Login />}
+          />
+          <Route
+            path="/signup"
+            element={token ? <Navigate to="/" /> : <SignUp />}
+          />
+          <Route path="*" element={<NotFound />} />
         </ReactRoutes>
       </Layout>
     </>

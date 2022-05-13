@@ -19,8 +19,11 @@ function Header() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="navbar-nav mr-auto">
-              <Link to="/about" className="nav-link">
-                About
+              <Link to="/users" className="nav-link">
+                Users
+              </Link>
+              <Link to="/orders" className="nav-link">
+                Orders
               </Link>
             </Nav>
             <Nav className="navbar-nav ms-auto">
