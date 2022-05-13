@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,7 +9,6 @@ function Login() {
   });
   const [error, setError] = useState(undefined);
   const [isDisabled, setIsDisabled] = useState(false);
-  //   const auth = useContext(AuthContext);
 
   const onChangeText = ({ name, value }) => {
     setError(undefined);
@@ -18,7 +18,29 @@ function Login() {
   const login = (e) => {
     e.preventDefault();
     setIsDisabled(true);
-    console.log(loginForm);
+    axios
+      .post("https://reqres.in/api/login", loginForm)
+      .then((res) => {
+        localStorage.setItem("token", `${res.data.token}`);
+        localStorage.setItem("role", `ADMIN`);
+        axios.get("https://reqres.in/api/users/2").then((res) => {
+          console.log(res.data.data);
+          const userData = {
+            avatar: res.data.data.avatar,
+            firstName: res.data.data.first_name,
+            lastName: res.data.data.last_name,
+            email: res.data.data.email,
+            id: res.data.data.id,
+          };
+
+          localStorage.setItem("user", `${JSON.stringify(userData)}`);
+          window.location.replace("http://localhost:3000/about");
+        });
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => setIsDisabled((prev) => !prev));
   };
 
   return (

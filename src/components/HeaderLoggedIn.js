@@ -4,6 +4,11 @@ import user from "../assets/images/user.png";
 import logo from "../assets/images/logo-us.png";
 
 function Header() {
+  const logout = () => {
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/login");
+  };
+
   return (
     <>
       <header className="light-bb">
@@ -39,6 +44,12 @@ function Header() {
                         <Link to="/profile" className="nav-link">
                           <i className="icon ion-md-person"></i>
                           <span>Profile</span>
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link to="/login" className="nav-link">
+                          <i className="icon ion-md-person"></i>
+                          <span onClick={logout}>Logout</span>
                         </Link>
                       </li>
                     </ul>
