@@ -1,9 +1,65 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Table from "../components/Table";
-import Pagination from "../components/Pagination";
+import Table from "../../components/Table";
+import Pagination from "../../components/Pagination";
+import { useNavigate } from "react-router-dom";
 
 function Users() {
+  const columns = [
+    {
+      Header: "ID",
+      accessor: "id",
+    },
+    {
+      Header: "First Name",
+      accessor: "first_name",
+    },
+    {
+      Header: "Last Name",
+      accessor: "last_name",
+    },
+    {
+      Header: "Email",
+      accessor: "email",
+    },
+    {
+      Header: "Avatar",
+      accessor: "avatar",
+    },
+    {
+      Header: "Actions",
+      accessor: "Actions",
+      Cell: ({ row: { original } }) => (
+        <>
+          <button
+            className="btn btn-primary mr-1"
+            onClick={() => console.log(original)}
+          >
+            View To Do
+          </button>
+          <button
+            className="btn btn-primary mr-1"
+            onClick={() => navigate(`/users/${original.id}`)}
+          >
+            View User
+          </button>
+          <button
+            className="btn btn-warning mr-1"
+            onClick={() => console.log(original)}
+          >
+            Edit User
+          </button>
+          <button
+            className="btn btn-danger mr-1"
+            onClick={() => console.log(original)}
+          >
+            Delete User
+          </button>
+        </>
+      ),
+    },
+  ];
+
   const [pageData, setPageData] = useState({
     rowData: [],
     isLoading: false,
@@ -11,6 +67,8 @@ function Users() {
     totalOrders: 0,
   });
   const [currentPage, setCurrentPage] = useState(1);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setPageData((prevState) => ({
@@ -68,48 +126,11 @@ function Users() {
 
 export default Users;
 
-const columns = [
-  {
-    Header: "ID",
-    accessor: "id",
-  },
-  {
-    Header: "First Name",
-    accessor: "first_name",
-  },
-  {
-    Header: "Last Name",
-    accessor: "last_name",
-  },
-  {
-    Header: "Email",
-    accessor: "email",
-  },
-  {
-    Header: "Avatar",
-    accessor: "avatar",
-  },
-  {
-    Header: "Actions",
-    accessor: "Actions",
-    Cell: ({ row: { original } }) => (
-      <>
-        <button
-          className="btn btn-primary mr-1"
-          onClick={() => console.log(original)}
-        >
-          View To Do
-        </button>
-      </>
-    ),
-  },
-];
-
 const formatRowData = (rawData) =>
   rawData.map((info) => ({
     id: info.id,
     first_name: info.first_name,
     last_name: info.last_name,
     email: info.email,
-    avatar: <img src={info.avatar} />,
+    avatar: <img src={info.avatar} alt="avatar" />,
   }));

@@ -6,10 +6,11 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import Orders from "../pages/Orders";
-import Users from "../pages/Users";
+import Users from "../pages/Users/Users";
 import { AuthContext } from "../providers/AuthContext";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
+import User from "../pages/Users/User";
 
 const Routes = () => {
   const { token } = useContext(AuthContext);
@@ -23,6 +24,14 @@ const Routes = () => {
             element={
               <ProtectedRoute>
                 <Users />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/:id"
+            element={
+              <ProtectedRoute>
+                <User />
               </ProtectedRoute>
             }
           />
