@@ -1,0 +1,28 @@
+.table-wrapper {
+  padding: 30px;
+}
+
+.table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+  border: 1px solid #e4e4e4;
+
+  table {
+    width: 100%;
+    min-height: 440px;
+    border-radius: 5px;
+
+    th,
+    td {
+      border-width: 1px;
+      border-color: #e4e4e4;
+      padding: 10px;
+
+      img {
+        width: 35px;
+        border-radius: 50%;
+      }
+    }
+  }
+}

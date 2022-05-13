@@ -1,0 +1,29 @@
+.pagination-wrapper {
+  margin-top: 10px;
+  div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    input {
+      width: 45px;
+      border: none;
+      padding-left: 15px;
+    }
+
+    span {
+      font-weight: 700;
+      padding: 0 5px;
+    }
+
+    button {
+      width: 27px;
+      height: 27px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid #e4e4e4;
+    }
+  }
+}
