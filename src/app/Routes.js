@@ -9,6 +9,7 @@ import Orders from "../pages/Orders";
 import Users from "../pages/Users";
 import { AuthContext } from "../providers/AuthContext";
 import NotFound from "../pages/NotFound";
+import Profile from "../pages/Profile";
 
 const Routes = () => {
   const { token } = useContext(AuthContext);
@@ -30,6 +31,14 @@ const Routes = () => {
             element={
               <ProtectedRoute>
                 <Orders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />

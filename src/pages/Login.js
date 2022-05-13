@@ -45,7 +45,7 @@ function Login() {
 
   return (
     <>
-      <div className="min-height-100vh d-flex justify-content-center">
+      <div className="min-height-100vh d-flex justify-content-center mt-5">
         <div className="container">
           <div className="row">
             <div className="col-12">
