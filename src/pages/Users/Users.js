@@ -32,25 +32,25 @@ function Users() {
       Cell: ({ row: { original } }) => (
         <>
           <button
-            className="btn btn-primary mr-1"
+            className="btn btn-primary ms-1"
             onClick={() => console.log(original)}
           >
             View To Do
           </button>
           <button
-            className="btn btn-primary mr-1"
+            className="btn btn-primary ms-1"
             onClick={() => navigate(`/users/${original.id}`)}
           >
             View User
           </button>
           <button
-            className="btn btn-warning mr-1"
+            className="btn btn-warning ms-1"
             onClick={() => console.log(original)}
           >
             Edit User
           </button>
           <button
-            className="btn btn-danger mr-1"
+            className="btn btn-danger ms-1"
             onClick={() => console.log(original)}
           >
             Delete User
@@ -105,10 +105,20 @@ function Users() {
   };
 
   return (
-    <div className="min-height-100vh mt-5">
+    <div className="min-height-100vh mt-5 user">
       <div className="container">
         <div className="row">
-          <div className="col-12">Users</div>
+          <div className="col-12">
+            <span className="user-total">
+              Total Users: {pageData.totalUsers}
+            </span>
+            <button
+              onClick={() => console.log("create user")}
+              className="btn btn-primary ms-1"
+            >
+              Create User
+            </button>
+          </div>
           <div className="col-12">
             <div className="table-wrapper">
               <div className="table">
