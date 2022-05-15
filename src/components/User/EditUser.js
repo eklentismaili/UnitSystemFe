@@ -49,11 +49,18 @@ function EditUser({ userData, onEdit }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         ariaHideApp={false}
+        className="Modal"
+        overlayClassName="Overlay"
       >
-        <button onClick={closeModal}>close</button>
-        <form onSubmit={editUser} className="login-form">
+        <form onSubmit={editUser}>
+          <div className="button-close">
+            <button onClick={closeModal} className="btn">
+              X
+            </button>
+          </div>
           <h3 className="text-center">Edit User</h3>
           <div className="form-group mb-3">
+            <label htmlFor="first_name">First Name</label>
             <input
               id="first_name"
               type="text"
@@ -70,6 +77,7 @@ function EditUser({ userData, onEdit }) {
             />
           </div>
           <div className="form-group mb-3">
+            <label htmlFor="last_name">Last Name</label>
             <input
               id="last_name"
               type="text"
@@ -86,6 +94,7 @@ function EditUser({ userData, onEdit }) {
             />
           </div>
           <div className="form-group mb-3">
+            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
@@ -102,6 +111,7 @@ function EditUser({ userData, onEdit }) {
             />
           </div>
           <div className="form-group mb-3">
+            <label htmlFor="avatar">Avatar</label>
             <input
               id="avatar"
               type="text"

@@ -1,0 +1,31 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+
+.Modal {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  min-width: 60vw;
+  position: absolute;
+  padding: 10px;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+
+  .button-close {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: #e4e4e4;
+    }
+  }
+}

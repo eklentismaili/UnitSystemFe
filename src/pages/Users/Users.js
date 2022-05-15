@@ -113,7 +113,7 @@ function Users() {
     <div className="min-height-100vh mt-5 user">
       <div className="container">
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 mb-3">
             <span className="user-total">
               Total Users: {pageData.totalUsers}
             </span>

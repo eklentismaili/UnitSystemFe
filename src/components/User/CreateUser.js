@@ -44,10 +44,16 @@ function CreateUser({ onCreate }) {
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
-        contentLabel="Example Modal"
+        ariaHideApp={false}
+        className="Modal"
+        overlayClassName="Overlay"
       >
-        <button onClick={closeModal}>close</button>
-        <form onSubmit={createNewUser} className="login-form">
+        <form onSubmit={createNewUser}>
+          <div className="button-close">
+            <button onClick={closeModal} className="btn">
+              X
+            </button>
+          </div>
           <h3 className="text-center">Create New User</h3>
           <div className="form-group mb-3">
             <input
