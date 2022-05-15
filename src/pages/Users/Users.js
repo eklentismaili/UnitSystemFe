@@ -3,6 +3,7 @@ import axios from "axios";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import { useNavigate } from "react-router-dom";
+import CreateUser from "./CreateUser";
 
 function Users() {
   const columns = [
@@ -112,12 +113,7 @@ function Users() {
             <span className="user-total">
               Total Users: {pageData.totalUsers}
             </span>
-            <button
-              onClick={() => console.log("create user")}
-              className="btn btn-primary ms-1"
-            >
-              Create User
-            </button>
+            <CreateUser />
           </div>
           <div className="col-12">
             <div className="table-wrapper">
