@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import Modal from "react-modal";
 
-function CreateUser() {
+function CreateUser({ onCreate }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const [newUser, setNewUser] = useState({
@@ -18,20 +18,23 @@ function CreateUser() {
     setIsOpen(true);
   }
 
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   const createNewUser = async (e) => {
     e.preventDefault();
     setIsDisabled((prev) => !prev);
 
     axios
       .post(`http://localhost:8000/users`, newUser)
-      .then((res) => console.log("success"))
+      .then((res) => {
+        onCreate();
+        closeModal();
+      })
       .catch((err) => console.log("error"))
       .finally(() => setIsDisabled((prev) => !prev));
   };
-
-  function closeModal() {
-    setIsOpen(false);
-  }
 
   return (
     <>

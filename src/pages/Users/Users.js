@@ -105,6 +105,10 @@ function Users() {
     });
   };
 
+  const onCreate = () => {
+    getUsersPagination(1);
+  };
+
   return (
     <div className="min-height-100vh mt-5 user">
       <div className="container">
@@ -113,7 +117,7 @@ function Users() {
             <span className="user-total">
               Total Users: {pageData.totalUsers}
             </span>
-            <CreateUser />
+            <CreateUser onCreate={onCreate} />
           </div>
           <div className="col-12">
             <div className="table-wrapper">
