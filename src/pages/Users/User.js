@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import EditUser from "./EditUser";
+import EditUser from "../../components/User/EditUser";
 
 function User() {
   const [loading, setIsLoading] = useState(true);

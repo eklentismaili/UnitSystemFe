@@ -3,7 +3,7 @@ import axios from "axios";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import { useNavigate } from "react-router-dom";
-import CreateUser from "./CreateUser";
+import CreateUser from "../../components/User/CreateUser";
 
 function Users() {
   const columns = [
