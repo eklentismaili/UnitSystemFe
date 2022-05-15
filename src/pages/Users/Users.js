@@ -64,7 +64,7 @@ function Users() {
     rowData: [],
     isLoading: false,
     totalPages: 0,
-    totalOrders: 0,
+    totalUsers: 0,
   });
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -76,23 +76,31 @@ function Users() {
       rowData: [],
       isLoading: true,
     }));
-    getData(currentPage);
+    getUsersPagination(currentPage);
   }, [currentPage]);
 
-  const getData = (pageNo) => {
-    axios.get(`https://reqres.in/api/users?page=${pageNo}`).then((info) => {
-      const data = info.data.data;
-      const totalPages = Math.ceil(info.data.total / 10);
-      const totalOrders = info.data.total;
+  const getUsersData = (pageNo, totalUsers, totalPages) => {
+    axios
+      .get(`http://localhost:8000/users?_page=${pageNo}&_limit=6`)
+      .then((info) => {
+        const data = info.data;
 
-      setPageData({
-        isLoading: false,
-        rowData: formatRowData(data),
-        totalPages,
-        totalOrders,
+        setPageData({
+          ...pageData,
+          totalPages: totalPages,
+          totalUsers: totalUsers,
+          isLoading: false,
+          rowData: formatRowData(data),
+        });
       });
+  };
 
-      console.log(info);
+  const getUsersPagination = (pageNo) => {
+    axios.get(`http://localhost:8000/users`).then(async (info) => {
+      const totalPages = Math.ceil(info.data.length / 6);
+      const totalUsers = info.data.length;
+
+      getUsersData(pageNo, totalUsers, totalPages);
     });
   };
 
@@ -112,9 +120,9 @@ function Users() {
               </div>
             </div>
             <Pagination
-              totalRows={pageData.totalOrders}
+              totalRows={pageData.totalUsers}
               pageChangeHandler={setCurrentPage}
-              rowsPerPage={10}
+              rowsPerPage={6}
               // key={`${sortType} + ${balanceType}`}
             />
           </div>
