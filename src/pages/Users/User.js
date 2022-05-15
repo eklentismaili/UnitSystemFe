@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import EditUser from "./EditUser";
 
 function User() {
   const [loading, setIsLoading] = useState(true);
@@ -22,17 +23,21 @@ function User() {
   const getUserData = async () => {
     setIsLoading(true);
 
-    axios.get(`https://reqres.in/api/users/${id}`).then((res) => {
-      console.log(res.data.data);
+    axios.get(`http://localhost:8000/users/${id}`).then((res) => {
+      console.log(res.data);
       setUserData({
         ...userData,
-        firstName: res.data.data.first_name,
-        lastName: res.data.data.last_name,
-        email: res.data.data.email,
-        id: res.data.data.id,
-        avatar: res.data.data.avatar,
+        firstName: res.data.first_name,
+        lastName: res.data.last_name,
+        email: res.data.email,
+        id: res.data.id,
+        avatar: res.data.avatar,
       });
     });
+  };
+
+  const onEdit = () => {
+    getUserData();
   };
 
   return (
@@ -63,9 +68,7 @@ function User() {
             <div className="user-info">{userData.id}</div>
           </div>
           <div className="col-12">
-            <button className="btn btn-warning" disabled={true}>
-              Edit
-            </button>
+            <EditUser userData={userData} onEdit={onEdit} />
           </div>
         </div>
       </div>
