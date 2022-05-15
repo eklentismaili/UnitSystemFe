@@ -38,7 +38,7 @@ function CreateUser({ onCreate }) {
 
   return (
     <>
-      <button onClick={() => openModal()} className="btn btn-primary ms-1">
+      <button onClick={() => openModal()} className="btn btn-primary mx-3">
         Create User
       </button>
       <Modal

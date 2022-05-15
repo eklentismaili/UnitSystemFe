@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import EditUser from "../../components/User/EditUser";
 
 function User() {
@@ -38,6 +39,7 @@ function User() {
 
   const onEdit = () => {
     getUserData();
+    toast.success("User updated successfully!");
   };
 
   return (
@@ -70,6 +72,7 @@ function User() {
           <div className="col-12">
             <EditUser userData={userData} onEdit={onEdit} />
           </div>
+          <ToastContainer />
         </div>
       </div>
     </div>

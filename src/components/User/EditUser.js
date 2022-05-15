@@ -43,7 +43,7 @@ function EditUser({ userData, onEdit }) {
   return (
     <>
       <button onClick={() => openModal()} className="btn btn-warning">
-        Update User
+        Edit User
       </button>
       <Modal
         isOpen={modalIsOpen}

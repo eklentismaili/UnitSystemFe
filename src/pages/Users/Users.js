@@ -4,6 +4,7 @@ import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
 import { useNavigate } from "react-router-dom";
 import CreateUser from "../../components/User/CreateUser";
+import { toast, ToastContainer } from "react-toastify";
 
 function Users() {
   const columns = [
@@ -107,6 +108,7 @@ function Users() {
 
   const onCreate = () => {
     getUsersPagination(1);
+    toast.success("User Successfully created!");
   };
 
   return (
@@ -136,6 +138,7 @@ function Users() {
               // key={`${sortType} + ${balanceType}`}
             />
           </div>
+          <ToastContainer />
         </div>
       </div>
     </div>
