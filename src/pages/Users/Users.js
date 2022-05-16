@@ -5,6 +5,7 @@ import Pagination from "../../components/Pagination";
 import { useNavigate } from "react-router-dom";
 import CreateUser from "../../components/User/CreateUser";
 import { toast, ToastContainer } from "react-toastify";
+import DeleteUser from "../../components/User/DeleteUser";
 
 function Users() {
   const columns = [
@@ -35,28 +36,17 @@ function Users() {
         <>
           <button
             className="btn btn-primary ms-1"
-            onClick={() => console.log(original)}
-          >
-            View To Do
-          </button>
-          <button
-            className="btn btn-primary ms-1"
             onClick={() => navigate(`/users/${original.id}`)}
           >
             View User
           </button>
           <button
-            className="btn btn-warning ms-1"
+            className="btn btn-primary ms-1"
             onClick={() => console.log(original)}
           >
-            Edit User
+            View To Do's
           </button>
-          <button
-            className="btn btn-danger ms-1"
-            onClick={() => console.log(original)}
-          >
-            Delete User
-          </button>
+          <DeleteUser original={original} onDelete={onDelete} />
         </>
       ),
     },
@@ -111,6 +101,11 @@ function Users() {
     toast.success("User Successfully created!");
   };
 
+  const onDelete = () => {
+    getUsersPagination(currentPage);
+    toast.success("User Successfully deleted!");
+  };
+
   return (
     <div className="min-height-100vh mt-5 user">
       <div className="container">
@@ -135,7 +130,7 @@ function Users() {
               totalRows={pageData.totalUsers}
               pageChangeHandler={setCurrentPage}
               rowsPerPage={6}
-              // key={`${sortType} + ${balanceType}`}
+              key={`${pageData.totalUsers} + 1`}
             />
           </div>
           <ToastContainer />
