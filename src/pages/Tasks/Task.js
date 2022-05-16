@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import GoBack from "../../components/GoBack";
 import EditTask from "../../components/Task/EditTask";
 
 function Task() {
@@ -44,6 +45,9 @@ function Task() {
     <div className="min-height-100vh profile mt-5">
       <div className="container">
         <div className="row">
+          <div className="col-12">
+            <GoBack />
+          </div>
           <div className="col-md-6">
             <h6>ID</h6>
             <div className="user-info">{taskData.id}</div>

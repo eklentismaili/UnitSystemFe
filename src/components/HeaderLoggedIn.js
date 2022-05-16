@@ -22,9 +22,6 @@ function Header() {
               <Link to="/users" className="nav-link">
                 Users
               </Link>
-              <Link to="/orders" className="nav-link">
-                Orders
-              </Link>
             </Nav>
             <Nav className="navbar-nav ms-auto">
               <Dropdown className="header-img-icon">

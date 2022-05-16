@@ -5,7 +5,6 @@ import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
-import Orders from "../pages/Orders";
 import Users from "../pages/Users/Users";
 import { AuthContext } from "../providers/AuthContext";
 import NotFound from "../pages/NotFound";
@@ -50,14 +49,6 @@ const Routes = () => {
             element={
               <ProtectedRoute>
                 <Task />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/orders"
-            element={
-              <ProtectedRoute>
-                <Orders />
               </ProtectedRoute>
             }
           />

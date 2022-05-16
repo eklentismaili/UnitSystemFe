@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import GoBack from "../../components/GoBack";
 import EditUser from "../../components/User/EditUser";
 
 function User() {
@@ -46,6 +47,9 @@ function User() {
     <div className="min-height-100vh profile mt-5">
       <div className="container">
         <div className="row">
+          <div className="col-12">
+            <GoBack />
+          </div>
           <div className="col-12 mb-5">
             <img
               src={userData.avatar}
