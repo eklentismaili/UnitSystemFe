@@ -2,39 +2,35 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
-import { useNavigate } from "react-router-dom";
-import CreateUser from "../../components/User/CreateUser";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import DeleteUser from "../../components/User/DeleteUser";
+import CreateTask from "../../components/Task/CreateTask";
 
-function Users() {
+function Tasks() {
   const columns = [
     {
       Header: "ID",
       accessor: "id",
     },
     {
-      Header: "First Name",
-      accessor: "first_name",
+      Header: "User ID",
+      accessor: "userId",
     },
     {
-      Header: "Last Name",
-      accessor: "last_name",
+      Header: "Title",
+      accessor: "title",
     },
     {
-      Header: "Email",
-      accessor: "email",
-    },
-    {
-      Header: "Avatar",
-      accessor: "avatar",
+      Header: "Completed",
+      accessor: "completed",
     },
     {
       Header: "Actions",
       accessor: "Actions",
       Cell: ({ row: { original } }) => (
         <>
-          <button
+          {/* <button
             className="btn btn-primary ms-1"
             onClick={() => navigate(`/users/${original.id}`)}
           >
@@ -42,11 +38,11 @@ function Users() {
           </button>
           <button
             className="btn btn-primary ms-1"
-            onClick={() => navigate(`/users/${original.id}/tasks`)}
+            onClick={() => console.log(original)}
           >
             View To Do's
           </button>
-          <DeleteUser original={original} onDelete={onDelete} />
+          <DeleteUser original={original} onDelete={onDelete} /> */}
         </>
       ),
     },
@@ -56,11 +52,13 @@ function Users() {
     rowData: [],
     isLoading: false,
     totalPages: 0,
-    totalUsers: 0,
+    totalTasks: 0,
   });
   const [currentPage, setCurrentPage] = useState(1);
 
   const navigate = useNavigate();
+
+  const { id } = useParams();
 
   useEffect(() => {
     setPageData((prevState) => ({
@@ -68,43 +66,43 @@ function Users() {
       rowData: [],
       isLoading: true,
     }));
-    getUsersPagination(currentPage);
+    getTasksPagination(currentPage);
   }, [currentPage]);
 
-  const getUsersData = (pageNo, totalUsers, totalPages) => {
+  const getTasksData = (pageNo, totalTasks, totalPages) => {
     axios
-      .get(`http://localhost:8000/users?_page=${pageNo}&_limit=6`)
+      .get(`http://localhost:8000/users/${id}/tasks?_page=${pageNo}&_limit=6`)
       .then((info) => {
         const data = info.data;
 
         setPageData({
           ...pageData,
           totalPages: totalPages,
-          totalUsers: totalUsers,
+          totalTasks: totalTasks,
           isLoading: false,
           rowData: formatRowData(data),
         });
       });
   };
 
-  const getUsersPagination = (pageNo) => {
-    axios.get(`http://localhost:8000/users`).then(async (info) => {
+  const getTasksPagination = (pageNo) => {
+    axios.get(`http://localhost:8000/users/${id}/tasks`).then(async (info) => {
       const totalPages = Math.ceil(info.data.length / 6);
-      const totalUsers = info.data.length;
+      const totalTasks = info.data.length;
 
-      getUsersData(pageNo, totalUsers, totalPages);
+      getTasksData(pageNo, totalTasks, totalPages);
     });
   };
 
   const onCreate = () => {
-    getUsersPagination(1);
-    toast.success("User Successfully created!");
+    getTasksPagination(1);
+    toast.success("Task Successfully created!");
   };
 
-  const onDelete = () => {
-    getUsersPagination(currentPage);
-    toast.success("User Successfully deleted!");
-  };
+  //   const onDelete = () => {
+  //     getUsersPagination(currentPage);
+  //     toast.success("User Successfully deleted!");
+  //   };
 
   return (
     <div className="min-height-100vh mt-5 user">
@@ -112,9 +110,9 @@ function Users() {
         <div className="row">
           <div className="col-12 mb-3">
             <span className="user-total">
-              Total Users: {pageData.totalUsers}
+              Total Tasks: {pageData.totalTasks}
             </span>
-            <CreateUser onCreate={onCreate} />
+            <CreateTask onCreate={onCreate} userId={id} />
           </div>
           <div className="col-12">
             <div className="table-wrapper">
@@ -127,10 +125,10 @@ function Users() {
               </div>
             </div>
             <Pagination
-              totalRows={pageData.totalUsers}
+              totalRows={pageData.totalTasks}
               pageChangeHandler={setCurrentPage}
               rowsPerPage={6}
-              key={`${pageData.totalUsers} + 1`}
+              key={`${pageData.totalTasks} + 1`}
             />
           </div>
           <ToastContainer />
@@ -140,13 +138,12 @@ function Users() {
   );
 }
 
-export default Users;
+export default Tasks;
 
 const formatRowData = (rawData) =>
   rawData.map((info) => ({
     id: info.id,
-    first_name: info.first_name,
-    last_name: info.last_name,
-    email: info.email,
-    avatar: <img src={info.avatar} alt="avatar" />,
+    userId: info.userId,
+    title: info.title,
+    completed: info.completed ? "true" : "false",
   }));

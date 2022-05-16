@@ -11,6 +11,7 @@ import { AuthContext } from "../providers/AuthContext";
 import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import User from "../pages/Users/User";
+import Tasks from "../pages/Tasks/Tasks";
 
 const Routes = () => {
   const { token } = useContext(AuthContext);
@@ -32,6 +33,14 @@ const Routes = () => {
             element={
               <ProtectedRoute>
                 <User />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/:id/tasks"
+            element={
+              <ProtectedRoute>
+                <Tasks />
               </ProtectedRoute>
             }
           />
