@@ -20,7 +20,7 @@ function Footer() {
             <p>
               We are a licensed industry leader, at work to source the best
               products in the market for you, while also striving to increase
-              accessibility and transparency in the trading industry.
+              accessibility and transparency in the development industry.
             </p>
           </div>
 
@@ -52,6 +52,7 @@ function Footer() {
           <div className="col-12 text-center">
             <p className="copyright-text">
               Copyright &copy; {new Date().getFullYear()} All Rights Reserved
+              Eklent Ismaili
             </p>
           </div>
         </div>

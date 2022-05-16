@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import DeleteUser from "../../components/User/DeleteUser";
 import CreateTask from "../../components/Task/CreateTask";
+import DeleteTask from "../../components/Task/DeleteTask";
+import GoBack from "../../components/GoBack";
 
 function Tasks() {
   const columns = [
@@ -38,7 +40,7 @@ function Tasks() {
           >
             View Task
           </button>
-          {/* <DeleteUser original={original} onDelete={onDelete} />  */}
+          <DeleteTask original={original} onDelete={onDelete} />
         </>
       ),
     },
@@ -91,19 +93,22 @@ function Tasks() {
   };
 
   const onCreate = () => {
-    getTasksPagination(1);
+    getTasksPagination(currentPage);
     toast.success("Task Successfully created!");
   };
 
-  //   const onDelete = () => {
-  //     getUsersPagination(currentPage);
-  //     toast.success("User Successfully deleted!");
-  //   };
+  const onDelete = () => {
+    getTasksPagination(currentPage);
+    toast.success("Task Successfully deleted!");
+  };
 
   return (
     <div className="min-height-100vh mt-5 user">
       <div className="container">
         <div className="row">
+          <div className="col-12">
+            <GoBack />
+          </div>
           <div className="col-12 mb-3">
             <span className="user-total">
               Total Tasks: {pageData.totalTasks}
