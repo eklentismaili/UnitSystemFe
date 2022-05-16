@@ -12,6 +12,7 @@ import NotFound from "../pages/NotFound";
 import Profile from "../pages/Profile";
 import User from "../pages/Users/User";
 import Tasks from "../pages/Tasks/Tasks";
+import Task from "../pages/Tasks/Task";
 
 const Routes = () => {
   const { token } = useContext(AuthContext);
@@ -41,6 +42,14 @@ const Routes = () => {
             element={
               <ProtectedRoute>
                 <Tasks />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/:id/tasks/:taskId"
+            element={
+              <ProtectedRoute>
+                <Task />
               </ProtectedRoute>
             }
           />

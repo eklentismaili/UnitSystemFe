@@ -30,19 +30,15 @@ function Tasks() {
       accessor: "Actions",
       Cell: ({ row: { original } }) => (
         <>
-          {/* <button
-            className="btn btn-primary ms-1"
-            onClick={() => navigate(`/users/${original.id}`)}
-          >
-            View User
-          </button>
           <button
-            className="btn btn-primary ms-1"
-            onClick={() => console.log(original)}
+            className="btn btn-primary"
+            onClick={() => {
+              navigate(`${original.id}`);
+            }}
           >
-            View To Do's
+            View Task
           </button>
-          <DeleteUser original={original} onDelete={onDelete} /> */}
+          {/* <DeleteUser original={original} onDelete={onDelete} />  */}
         </>
       ),
     },
@@ -86,7 +82,7 @@ function Tasks() {
   };
 
   const getTasksPagination = (pageNo) => {
-    axios.get(`http://localhost:8000/users/${id}/tasks`).then(async (info) => {
+    axios.get(`http://localhost:8000/tasks?userId=${id}`).then(async (info) => {
       const totalPages = Math.ceil(info.data.length / 6);
       const totalTasks = info.data.length;
 
@@ -145,5 +141,5 @@ const formatRowData = (rawData) =>
     id: info.id,
     userId: info.userId,
     title: info.title,
-    completed: info.completed ? "true" : "false",
+    completed: info.completed === "true" ? "true" : "false",
   }));
