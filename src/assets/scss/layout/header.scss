@@ -276,3 +276,15 @@ header .nav-link.btn {
 header {
   padding: 0 20px;
 }
+
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-nav .dropdown-menu {
+    left: unset !important;
+  }
+}
+
+.profile-nav {
+  list-style: none !important;
+  padding: 3px;
+  margin: 0;
+}

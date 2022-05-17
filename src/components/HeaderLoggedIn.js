@@ -46,10 +46,10 @@ function Header() {
                           <span>Profile</span>
                         </Link>
                       </li>
-                      <li className="nav-item">
+                      <li className="nav-item" onClick={logout}>
                         <Link to="/login" className="nav-link">
                           <i className="icon ion-md-person"></i>
-                          <span onClick={logout}>Logout</span>
+                          <span>Logout</span>
                         </Link>
                       </li>
                     </ul>
