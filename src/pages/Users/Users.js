@@ -45,7 +45,7 @@ function Users() {
             className="btn btn-primary ms-1"
             onClick={() => navigate(`/users/${original.id}/tasks`)}
           >
-            View To Do's
+            View Tasks
           </button>
           <DeleteUser original={original} onDelete={onDelete} />
         </>
