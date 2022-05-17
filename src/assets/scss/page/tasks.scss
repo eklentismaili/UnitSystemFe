@@ -1,0 +1,14 @@
+.filter {
+  display: flex;
+  margin: 20px 0;
+  align-items: center;
+
+  span {
+    margin-right: 10px;
+    font-weight: 700;
+  }
+
+  select {
+    width: fit-content;
+  }
+}
