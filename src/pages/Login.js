@@ -90,9 +90,9 @@ function Login() {
                 ) : (
                   ""
                 )}
-                <div className="text-right">
+                {/* <div className="text-right">
                   <Link to="/verify-email">Forgot Password?</Link>
-                </div>
+                </div> */}
                 <button
                   type="submit"
                   className="btn btn-primary"
@@ -100,9 +100,9 @@ function Login() {
                 >
                   Sign In
                 </button>
-                <h4 className="mt-2">
+                {/* <h4 className="mt-2">
                   Don't have an account? <Link to="/signup">Sign up here</Link>
-                </h4>
+                </h4> */}
               </form>
             </div>
           </div>
