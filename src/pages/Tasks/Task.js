@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton-2";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import GoBack from "../../components/GoBack";
@@ -24,16 +25,19 @@ function Task() {
   const getTaskData = async () => {
     setIsLoading(true);
 
-    axios.get(`http://localhost:8000/tasks/${taskId}`).then((res) => {
-      console.log(res.data);
-      setTaskData({
-        ...taskData,
-        userId: res.data.userId,
-        title: res.data.title,
-        id: res.data.id,
-        completed: res.data.completed,
-      });
-    });
+    axios
+      .get(`http://localhost:8000/tasks/${taskId}`)
+      .then((res) => {
+        console.log(res.data);
+        setTaskData({
+          ...taskData,
+          userId: res.data.userId,
+          title: res.data.title,
+          id: res.data.id,
+          completed: res.data.completed,
+        });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const onEdit = () => {
@@ -50,21 +54,37 @@ function Task() {
           </div>
           <div className="col-md-6">
             <h6>ID</h6>
-            <div className="user-info">{taskData.id}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{taskData.id}</div>
+            )}
           </div>
           <div className="col-md-6">
             <h6>User ID</h6>
-            <div className="user-info">{taskData.userId}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{taskData.userId}</div>
+            )}
           </div>
           <div className="col-md-6">
             <h6>Title</h6>
-            <div className="user-info">{taskData.title}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{taskData.title}</div>
+            )}
           </div>
           <div className="col-md-6">
             <h6>Completed</h6>
-            <div className="user-info">
-              {taskData.completed === "true" ? "true" : "false"}
-            </div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">
+                {taskData.completed === "true" ? "true" : "false"}
+              </div>
+            )}
           </div>
           <div className="col-12">
             <EditTask taskData={taskData} onEdit={onEdit} />

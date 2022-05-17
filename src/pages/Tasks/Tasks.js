@@ -8,6 +8,7 @@ import DeleteUser from "../../components/User/DeleteUser";
 import CreateTask from "../../components/Task/CreateTask";
 import DeleteTask from "../../components/Task/DeleteTask";
 import GoBack from "../../components/GoBack";
+import Skeleton from "react-loading-skeleton-2";
 
 function Tasks() {
   const columns = [
@@ -116,15 +117,19 @@ function Tasks() {
             <CreateTask onCreate={onCreate} userId={id} />
           </div>
           <div className="col-12">
-            <div className="table-wrapper">
-              <div className="table">
-                <Table
-                  columns={columns}
-                  data={pageData.rowData}
-                  isLoading={pageData.isLoading}
-                />
+            {pageData.isLoading ? (
+              <Skeleton height={"440px"} width={"100%"} />
+            ) : (
+              <div className="table-wrapper">
+                <div className="table">
+                  <Table
+                    columns={columns}
+                    data={pageData.rowData}
+                    isLoading={pageData.isLoading}
+                  />
+                </div>
               </div>
-            </div>
+            )}
             <Pagination
               totalRows={pageData.totalTasks}
               pageChangeHandler={setCurrentPage}

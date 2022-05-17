@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton-2";
 import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import GoBack from "../../components/GoBack";
@@ -25,17 +26,20 @@ function User() {
   const getUserData = async () => {
     setIsLoading(true);
 
-    axios.get(`http://localhost:8000/users/${id}`).then((res) => {
-      console.log(res.data);
-      setUserData({
-        ...userData,
-        firstName: res.data.first_name,
-        lastName: res.data.last_name,
-        email: res.data.email,
-        id: res.data.id,
-        avatar: res.data.avatar,
-      });
-    });
+    axios
+      .get(`http://localhost:8000/users/${id}`)
+      .then((res) => {
+        console.log(res.data);
+        setUserData({
+          ...userData,
+          firstName: res.data.first_name,
+          lastName: res.data.last_name,
+          email: res.data.email,
+          id: res.data.id,
+          avatar: res.data.avatar,
+        });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const onEdit = () => {
@@ -51,27 +55,47 @@ function User() {
             <GoBack />
           </div>
           <div className="col-12 mb-5">
-            <img
-              src={userData.avatar}
-              alt="User Photo"
-              className="user-photo"
-            />
+            {loading ? (
+              <Skeleton width={"100px"} height={"100px"} circle={true} />
+            ) : (
+              <img
+                src={userData.avatar}
+                alt="User Photo"
+                className="user-photo"
+              />
+            )}
           </div>
           <div className="col-md-6">
             <h6>First Name</h6>
-            <div className="user-info">{userData.firstName}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{userData.firstName}</div>
+            )}
           </div>
           <div className="col-md-6">
             <h6>Last Name</h6>
-            <div className="user-info">{userData.lastName}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{userData.lastName}</div>
+            )}
           </div>
           <div className="col-md-6">
             <h6>Email</h6>
-            <div className="user-info">{userData.email}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{userData.email}</div>
+            )}
           </div>
           <div className="col-md-6">
             <h6>ID</h6>
-            <div className="user-info">{userData.id}</div>
+            {loading ? (
+              <Skeleton width={"100%"} height={"46px"} />
+            ) : (
+              <div className="user-info">{userData.id}</div>
+            )}
           </div>
           <div className="col-12">
             <EditUser userData={userData} onEdit={onEdit} />

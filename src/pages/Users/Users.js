@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import CreateUser from "../../components/User/CreateUser";
 import { toast, ToastContainer } from "react-toastify";
 import DeleteUser from "../../components/User/DeleteUser";
+import Skeleton from "react-loading-skeleton-2";
 
 function Users() {
   const columns = [
@@ -117,15 +118,20 @@ function Users() {
             <CreateUser onCreate={onCreate} />
           </div>
           <div className="col-12">
-            <div className="table-wrapper">
-              <div className="table">
-                <Table
-                  columns={columns}
-                  data={pageData.rowData}
-                  isLoading={pageData.isLoading}
-                />
+            {pageData.isLoading ? (
+              <Skeleton height={"440px"} width={"100%"} />
+            ) : (
+              <div className="table-wrapper">
+                <div className="table">
+                  <Table
+                    columns={columns}
+                    data={pageData.rowData}
+                    isLoading={pageData.isLoading}
+                  />
+                </div>
               </div>
-            </div>
+            )}
+
             <Pagination
               totalRows={pageData.totalUsers}
               pageChangeHandler={setCurrentPage}
