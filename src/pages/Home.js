@@ -14,17 +14,38 @@ function Home() {
             <ul>
               <li>Authentication using ReqRes fake API</li>
               <li>Protected Routes based on authentication status</li>
-              <li>Table data pagination and filtering</li>
+              <li>Table data pagination and filtering using JSON SERVER</li>
+              <li>CRUD Operations on users and users tasks tables</li>
               {/* <li>Theme</li>
               <li>Localization</li> */}
             </ul>
-            <p>
-              To authenticate on login page use{" "}
-              <span className="home-email">eve.holt@reqres.in</span>
-              as the email and whatever string for password.
-              <br />I used the Context API together with localStorage for global
-              state management info such as user information, token and role.
-            </p>
+            <p>To see the full run of this project:</p>
+            <ol>
+              <li>
+                Install UnitSystemBe repo and then run:
+                <ol>
+                  <li>npm install</li>
+                  <li>npm run json:server</li>
+                </ol>
+              </li>
+              <li>
+                Install UnitSystemFe repo and then run:
+                <ol>
+                  <li>npm install</li>
+                </ol>
+              </li>
+              <li>
+                Login with:
+                <ol>
+                  <li>
+                    email: <b>eve.holt@reqres.in</b>
+                  </li>
+                  <li>
+                    password: <b>password</b>
+                  </li>
+                </ol>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
