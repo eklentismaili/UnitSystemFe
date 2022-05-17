@@ -4,7 +4,6 @@ import ProtectedRoute from "./ProtectedRoute";
 import Layout from "../components/Layout";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
-import SignUp from "../pages/SignUp";
 import Users from "../pages/Users/Users";
 import { AuthContext } from "../providers/AuthContext";
 import NotFound from "../pages/NotFound";
@@ -64,10 +63,6 @@ const Routes = () => {
           <Route
             path="/login"
             element={token ? <Navigate to="/" /> : <Login />}
-          />
-          <Route
-            path="/signup"
-            element={token ? <Navigate to="/" /> : <SignUp />}
           />
           <Route path="*" element={<NotFound />} />
         </ReactRoutes>
