@@ -51,7 +51,7 @@ function EditTask({ taskData, onEdit }) {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <form onSubmit={editTask}>
+        <form onSubmit={editTask} className="modal-form">
           <div className="button-close">
             <button onClick={closeModal} className="btn">
               X
@@ -106,7 +106,7 @@ function EditTask({ taskData, onEdit }) {
 
           <button
             type="submit"
-            className="btn btn-warning"
+            className="btn btn-warning full-width"
             disabled={isDisabled}
           >
             Edit Task

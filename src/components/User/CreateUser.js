@@ -48,7 +48,7 @@ function CreateUser({ onCreate }) {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <form onSubmit={createNewUser}>
+        <form onSubmit={createNewUser} className="modal-form">
           <div className="button-close">
             <button onClick={closeModal} className="btn">
               X
@@ -114,7 +114,7 @@ function CreateUser({ onCreate }) {
 
           <button
             type="submit"
-            className="btn btn-warning"
+            className="btn btn-warning full-width"
             disabled={isDisabled}
           >
             Create User

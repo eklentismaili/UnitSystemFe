@@ -45,7 +45,7 @@ function CreateTask({ onCreate, userId }) {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <form onSubmit={createNewTask}>
+        <form onSubmit={createNewTask} className="modal-form">
           <div className="button-close">
             <button onClick={closeModal} className="btn">
               X
@@ -69,7 +69,7 @@ function CreateTask({ onCreate, userId }) {
           </div>
           <button
             type="submit"
-            className="btn btn-warning"
+            className="btn btn-warning full-width"
             disabled={isDisabled}
           >
             Create Task

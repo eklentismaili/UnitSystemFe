@@ -52,7 +52,7 @@ function EditUser({ userData, onEdit }) {
         className="Modal"
         overlayClassName="Overlay"
       >
-        <form onSubmit={editUser}>
+        <form onSubmit={editUser} className="modal-form">
           <div className="button-close">
             <button onClick={closeModal} className="btn">
               X
@@ -124,7 +124,7 @@ function EditUser({ userData, onEdit }) {
 
           <button
             type="submit"
-            className="btn btn-warning"
+            className="btn btn-warning full-width"
             disabled={isDisabled}
           >
             Edit User
