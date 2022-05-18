@@ -2,19 +2,21 @@ import { Link } from "react-router-dom";
 import user from "../assets/images/user.png";
 import logo from "../assets/images/logo-us.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSun, faMoon, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {
+  faSun,
+  faMoon,
+  faUsers,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
 import { ThemeContext } from "../providers/ThemeContext";
 import Locale from "./Locale";
 import { Dropdown } from "react-bootstrap";
+import { AuthContext } from "../providers/AuthContext";
 
 function Header() {
   const { theme, setTheme } = useContext(ThemeContext);
-
-  const logout = () => {
-    localStorage.clear();
-    window.location.replace("http://localhost:3000/login");
-  };
+  const { logout } = useContext(AuthContext);
 
   return (
     <>
@@ -56,16 +58,12 @@ function Header() {
                     <Link to="/profile">Profile</Link>
                   </div>
                 </Dropdown.Item>
-                <Dropdown.Item>
-                  <div className="settings">
-                    <button
-                      onClick={() => {
-                        logout();
-                      }}
-                    >
-                      Logout
-                    </button>
-                  </div>
+                <Dropdown.Item
+                  onClick={() => {
+                    logout();
+                  }}
+                >
+                  <FontAwesomeIcon icon={faArrowRight} />
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>

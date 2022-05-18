@@ -14,12 +14,18 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [role, setRole] = useState(localStorage.getItem("role"));
 
+  const logout = () => {
+    localStorage.clear();
+    window.location.replace("http://localhost:3000/login");
+  };
+
   return (
     <AuthContext.Provider
       value={{
         user,
         token,
         role,
+        logout,
       }}
     >
       {children}

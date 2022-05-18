@@ -26,11 +26,11 @@ body {
 }
 
 body.dark {
-  background-color: #000;
-  color: #009ddc;
+  background-color: #222831;
+  color: #dddddd;
 
   a {
-    color: #009ddc !important;
+    color: #dddddd !important;
   }
 
   a:hover {
@@ -38,15 +38,15 @@ body.dark {
   }
 
   table {
-    color: #009ddc;
+    color: #dddddd;
   }
 
   .Overlay {
-    background: #000;
+    background: #222831;
   }
 
   .sweet-alert {
-    background: #000 !important;
-    border: 1px solid #fff;
+    background: #222831 !important;
+    border: 1px solid #dddddd;
   }
 }
