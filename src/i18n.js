@@ -24,63 +24,48 @@ i18n
     resources: {
       en: {
         translation: {
-          register: {
-            title: "Welcome to Vital",
-            subtitle:
-              "Enter your mobile number we will send you the OTP to verify later.",
-            verification_button: "Send verification code",
-            change_nr: "Change Number ?",
-          },
-          verify: {
-            title: "Verify OTP",
-            subtitle_p1: "We have sent you an SMS on",
-            subtitle_p2: "with 6 digit verification code.",
-            countdown: "Countdown",
-            continue: "Continue",
-          },
-          introduction: {
-            title1: "Online Pharmacy",
-            title2: "Fast Delivery",
-            subtitle1:
-              "You can buy medicines, Healthcare Products and more here.",
-            subtitle2:
-              "Your medicines and healthcare products will be delivered very fast by our staff",
-            skip: "Skip",
-          },
           home: {
-            title1: "Online Pharmacy",
-            title2: "Fast Delivery",
-            subtitle1:
-              "You can buy medicines, Healthcare Products and more here.",
-            subtitle2:
-              "Your medicines and healthcare products will be delivered very fast by our staff",
-            skip: "Skip",
+            title: "Hello I am Eklent Ismaili",
+            subtitle:
+              "This is a simple web application simulation with different features such as:",
+            features: {
+              auth: "Authentication using ReqRes fake API",
+              protected: "Protected Routes based on authentication status",
+              table: "Table data pagination and filtering using JSON SERVER",
+              crud: "CRUD Operations on users and users tasks tables",
+              theme: "Light/Dark Theme",
+              localization: "It/En Localization",
+            },
+            info: "To see the full run of this project:",
+            steps: {
+              1: "Install UnitSystemBe repo and then run:",
+              2: "Install UnitSystemFe repo and then run:",
+              3: "Login with:",
+            },
           },
         },
       },
       it: {
         translation: {
-          register: {
-            title: "Mireserdhet ne Vital",
+          home: {
+            title: "Ciao sono Eklent Ismaili",
             subtitle:
-              "Vendosni numrin e telefonit e do ju dergojme OTP ta verifikojme me vone",
-            verification_button: "Dergo kodin e verifikimit",
-            change_nr: "Ndrysho Numrin ?",
-          },
-          verify: {
-            title: "Verifiko OTP",
-            subtitle_p1: "Ju kemi derguar nje kod verifikimi ne SMS",
-            subtitle_p2: "me 6 shkronja",
-            countdown: "Koha mbetur",
-            continue: "Vazhdo",
-          },
-          introduction: {
-            title1: "Farmaci Online",
-            title2: "Dergim i Shpejte",
-            subtitle1:
-              "Ketu mund te blini ilace, produkte kujdesi dhe me shume.",
-            subtitle2: "Porosia juaj dergohet tek ju nga stafi yne",
-            skip: "Vazhdo",
+              "Questa è una semplice simulazione di un'applicazione web con diverse funzionalità come:",
+            features: {
+              auth: "Autenticazione tramite falsa API ReqRes",
+              protected: "Rotte protette in base allo stato di autenticazione",
+              table:
+                "Impaginazione e filtraggio dei dati delle tabelle tramite JSON SERVER",
+              crud: "CRUD Operazioni su utenti e compiti di utenti",
+              theme: "Light/Dark Theme",
+              localization: "It/En Localizzazione",
+            },
+            info: "Per vedere l'esecuzione completa di questo progetto:",
+            steps: {
+              1: "Installa il repository UnitSystemBe e run:",
+              2: "Installa il repository UnitSystemFe run:",
+              3: "Entra con:",
+            },
           },
         },
       },

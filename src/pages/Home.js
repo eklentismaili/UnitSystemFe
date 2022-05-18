@@ -1,41 +1,41 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="min-height-100vh mt-5 home">
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h4>Hello I am Eklent Ismaili</h4>
-            <p>
-              This is a simple web application simulation with different
-              features such as:
-            </p>
+            <h4>{t("home.title")}</h4>
+            <p>{t("home.subtitle")}</p>
             <ul>
-              <li>Authentication using ReqRes fake API</li>
-              <li>Protected Routes based on authentication status</li>
-              <li>Table data pagination and filtering using JSON SERVER</li>
-              <li>CRUD Operations on users and users tasks tables</li>
-              <li>Light/Dark Theme</li>
-              <li>It/En Localization</li>
+              <li>{t("home.features.auth")}</li>
+              <li>{t("home.features.protected")}</li>
+              <li>{t("home.features.table")}</li>
+              <li>{t("home.features.crud")}</li>
+              <li>{t("home.features.theme")}</li>
+              <li>{t("home.features.localization")}</li>
             </ul>
-            <p>To see the full run of this project:</p>
+            <p>{t("home.info")}</p>
             <ol>
               <li>
-                Install UnitSystemBe repo and then run:
+                {t("home.steps.1")}
                 <ol>
                   <li>npm install</li>
                   <li>npm run json:server</li>
                 </ol>
               </li>
               <li>
-                Install UnitSystemFe repo and then run:
+                {t("home.steps.2")}
                 <ol>
                   <li>npm install</li>
                 </ol>
               </li>
               <li>
-                Login with:
+                {t("home.steps.3")}
                 <ol>
                   <li>
                     email: <b>eve.holt@reqres.in</b>
