@@ -81,9 +81,7 @@ function Task() {
             {loading ? (
               <Skeleton width={"100%"} height={"46px"} />
             ) : (
-              <div className="user-info">
-                {taskData.completed === "true" ? "true" : "false"}
-              </div>
+              <div className="user-info">{taskData.completed.toString()}</div>
             )}
           </div>
           <div className="col-12">
