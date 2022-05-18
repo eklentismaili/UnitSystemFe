@@ -38,10 +38,10 @@ const customStyles = {
 };
 
 function Locale() {
-  const { locale, setLocale } = useContext(LocaleContext);
+  const { locale, changeLanguageHandler } = useContext(LocaleContext);
 
   useEffect(() => {
-    setLocale(options[0]);
+    changeLanguageHandler(options[0]);
   }, []);
 
   return (
@@ -54,7 +54,7 @@ function Locale() {
         isSearchable={false}
         styles={customStyles}
         defaultValue={options[0]}
-        onChange={setLocale}
+        onChange={changeLanguageHandler}
         options={options}
       />
     </div>

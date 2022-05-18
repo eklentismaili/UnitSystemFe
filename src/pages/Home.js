@@ -16,8 +16,8 @@ function Home() {
               <li>Protected Routes based on authentication status</li>
               <li>Table data pagination and filtering using JSON SERVER</li>
               <li>CRUD Operations on users and users tasks tables</li>
-              {/* <li>Theme</li>
-              <li>Localization</li> */}
+              <li>Light/Dark Theme</li>
+              <li>It/En Localization</li>
             </ul>
             <p>To see the full run of this project:</p>
             <ol>
