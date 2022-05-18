@@ -1,6 +1,6 @@
 import {
-  faFacebook,
-  faTwitter,
+  faGithub,
+  faLinkedin,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -28,17 +28,29 @@ function Footer() {
             <h6>Contact Us</h6>
             <ul className="social-icons">
               <li>
-                <a className="facebook" href="javascript:void(0)">
-                  <FontAwesomeIcon icon={faFacebook} />
+                <a
+                  className="facebook"
+                  href="https://al.linkedin.com/in/eklent-ismaili-b936001b6"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </a>
               </li>
               <li>
-                <a className="twitter" href="javascript:void(0)">
-                  <FontAwesomeIcon icon={faTwitter} />
+                <a
+                  className="twitter"
+                  href="https://github.com/eklentismaili"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={faGithub} />
                 </a>
               </li>
               <li>
-                <a className="dribbble" href="javascript:void(0)">
+                <a
+                  className="dribbble"
+                  href="https://www.instagram.com/eklentismaili/"
+                  target="_blank"
+                >
                   <FontAwesomeIcon icon={faInstagram} />
                 </a>
               </li>

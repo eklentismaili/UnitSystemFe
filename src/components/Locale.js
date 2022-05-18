@@ -20,7 +20,7 @@ const customStyles = {
   }),
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: state.isSelected ? "#ed806c" : "#2b2d53",
+    backgroundColor: state.isSelected ? "#007bff" : "#222831",
   }),
   control: (provided) => ({
     ...provided,

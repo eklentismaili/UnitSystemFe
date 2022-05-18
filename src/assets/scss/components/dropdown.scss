@@ -41,3 +41,7 @@
   background: transparent;
   outline: none !important;
 }
+
+.dropdown-toggle::after {
+  border: none !important;
+}

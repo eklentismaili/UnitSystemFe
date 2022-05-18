@@ -39,9 +39,14 @@ function Header() {
             <div className="locale">{/* <Locale /> */}</div>
             <Locale />
             {theme === "light" ? (
-              <FontAwesomeIcon icon={faSun} onClick={() => setTheme("dark")} />
+              <FontAwesomeIcon
+                icon={faSun}
+                onClick={() => setTheme("dark")}
+                style={{ cursor: "pointer" }}
+              />
             ) : (
               <FontAwesomeIcon
+                style={{ cursor: "pointer" }}
                 icon={faMoon}
                 onClick={() => setTheme("light")}
               />
