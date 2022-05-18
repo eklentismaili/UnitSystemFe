@@ -40,10 +40,13 @@ body.dark {
   table {
     color: #009ddc;
   }
-}
 
-@media (min-width: 992px) {
-  body.dark .navbar-expand-lg .navbar-nav .dropdown-menu {
-    background-color: #000;
+  .Overlay {
+    background: #000;
+  }
+
+  .sweet-alert {
+    background: #000 !important;
+    border: 1px solid #fff;
   }
 }

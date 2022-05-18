@@ -23,20 +23,10 @@ function HeaderNotLoggedIn() {
         </div>
 
         <div className="right-nav">
-          <div className="locale">{/* <Locale /> */}</div>
-          <Locale />
-          {theme === "light" ? (
-            <FontAwesomeIcon icon={faSun} onClick={() => setTheme("dark")} />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} onClick={() => setTheme("light")} />
-          )}
-
           {pathname !== "/login" ? (
-            <li className="nav-item">
-              <Link to="/login">
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
+            <Link to="/login">
+              <FontAwesomeIcon icon={faArrowRight} />
+            </Link>
           ) : (
             <></>
           )}
