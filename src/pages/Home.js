@@ -26,16 +26,11 @@ function Home() {
                 <ol>
                   <li>npm install</li>
                   <li>npm run json:server</li>
+                  <li>npm run start</li>
                 </ol>
               </li>
               <li>
                 {t("home.steps.2")}
-                <ol>
-                  <li>npm install</li>
-                </ol>
-              </li>
-              <li>
-                {t("home.steps.3")}
                 <ol>
                   <li>
                     email: <b>eve.holt@reqres.in</b>

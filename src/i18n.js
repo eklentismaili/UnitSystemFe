@@ -38,9 +38,8 @@ i18n
             },
             info: "To see the full run of this project:",
             steps: {
-              1: "Install UnitSystemBe repo and then run:",
-              2: "Install UnitSystemFe repo and then run:",
-              3: "Login with:",
+              1: "Install UnitSystemFe repo and then run:",
+              2: "Login with:",
             },
           },
         },
@@ -62,9 +61,8 @@ i18n
             },
             info: "Per vedere l'esecuzione completa di questo progetto:",
             steps: {
-              1: "Installa il repository UnitSystemBe e run:",
-              2: "Installa il repository UnitSystemFe run:",
-              3: "Entra con:",
+              1: "Installa il repository UnitSystemFe e run:",
+              2: "Entra con:",
             },
           },
         },
