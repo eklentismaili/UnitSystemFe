@@ -1,9 +1,16 @@
-import { Navbar, Nav, NavDropdown, Dropdown, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import user from "../assets/images/user.png";
 import logo from "../assets/images/logo-us.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { ThemeContext } from "../providers/ThemeContext";
+import Locale from "./Locale";
+import { Dropdown } from "react-bootstrap";
 
 function Header() {
+  const { theme, setTheme } = useContext(ThemeContext);
+
   const logout = () => {
     localStorage.clear();
     window.location.replace("http://localhost:3000/login");
@@ -11,54 +18,59 @@ function Header() {
 
   return (
     <>
-      <header className="light-bb">
-        <Navbar expand="lg">
-          <Link className="navbar-brand" to="/">
-            <img src={logo} alt="logo" />
-          </Link>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="navbar-nav mr-auto">
-              <Link to="/users" className="nav-link">
-                Users
+      <header>
+        <nav>
+          <div className="left-nav">
+            <div className="logo">
+              <Link to="/">
+                <img src={logo} />
               </Link>
-            </Nav>
-            <Nav className="navbar-nav ms-auto">
-              <Dropdown className="header-img-icon">
-                <Dropdown.Toggle variant="default">
-                  <img src={user} alt="avatar" />
-                </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <div className="dropdown-header d-flex flex-column align-items-center">
-                    <div className="figure mb-3">
-                      <img src={user} alt="avatar" />
-                    </div>
-                    <div className="info text-center">
-                      <p className="name font-weight-bold mb-0">prova prova</p>
-                      <p className="email text-muted mb-3">@prova</p>
-                    </div>
+            </div>
+            <div className="sidebar-btn-wrapper">
+              <Link to="/users">
+                <FontAwesomeIcon icon={faUsers} />
+              </Link>
+            </div>
+          </div>
+
+          <div className="right-nav">
+            <div className="locale">{/* <Locale /> */}</div>
+            <Locale />
+            {theme === "light" ? (
+              <FontAwesomeIcon icon={faSun} onClick={() => setTheme("dark")} />
+            ) : (
+              <FontAwesomeIcon
+                icon={faMoon}
+                onClick={() => setTheme("light")}
+              />
+            )}
+
+            <Dropdown>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <img src={user} alt="Avatar" />
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item>
+                  <div className="avatar">
+                    <Link to="/profile">Profile</Link>
                   </div>
-                  <div className="dropdown-body">
-                    <ul className="profile-nav">
-                      <li className="nav-item">
-                        <Link to="/profile" className="nav-link">
-                          <i className="icon ion-md-person"></i>
-                          <span>Profile</span>
-                        </Link>
-                      </li>
-                      <li className="nav-item" onClick={logout}>
-                        <Link to="/login" className="nav-link">
-                          <i className="icon ion-md-person"></i>
-                          <span>Logout</span>
-                        </Link>
-                      </li>
-                    </ul>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <div className="settings">
+                    <button
+                      onClick={() => {
+                        logout();
+                      }}
+                    >
+                      Logout
+                    </button>
                   </div>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
+        </nav>
       </header>
     </>
   );

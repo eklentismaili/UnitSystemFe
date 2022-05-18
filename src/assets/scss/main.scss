@@ -12,6 +12,7 @@
 @import "./components/table.scss";
 @import "./components/pagination.scss";
 @import "./components/modal.scss";
+@import "./components/dropdown.scss";
 
 @font-face {
   font-family: poppins;
@@ -21,4 +22,28 @@
 body {
   font-family: poppins;
   overflow-x: hidden !important;
+  box-sizing: border-box;
+}
+
+body.dark {
+  background-color: #000;
+  color: #009ddc;
+
+  a {
+    color: #009ddc !important;
+  }
+
+  a:hover {
+    background: transparent;
+  }
+
+  table {
+    color: #009ddc;
+  }
+}
+
+@media (min-width: 992px) {
+  body.dark .navbar-expand-lg .navbar-nav .dropdown-menu {
+    background-color: #000;
+  }
 }
